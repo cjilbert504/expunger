@@ -15,4 +15,10 @@ RSpec.describe User, type: :model do
   it "has a password" do
     expect(@user.password).to eq("12345")
   end
+
+  it "has a blerb" do
+    @user.blerb = "He can speak Russian… in French"
+
+    expect(@user.blerb).to eq("He can speak Russian… in French")
+  end
 end
