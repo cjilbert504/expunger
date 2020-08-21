@@ -7,5 +7,9 @@ RSpec.describe BlerbsController, :type => :controller do
 
             expect(response.status).to eq(200)
         end
+
+        it "responds with content type of application/json" do
+            expect(response.content_type).to eq("application/json")
+        end
     end
 end
