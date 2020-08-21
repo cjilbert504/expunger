@@ -17,8 +17,8 @@ RSpec.describe User, type: :model do
   end
 
   it "has a blerb" do
-    @user.blerb = "He can speak Russian… in French"
+    @user.blerbs.build(content: "He can speak Russian… in French")
 
-    expect(@user.blerb).to eq("He can speak Russian… in French")
+    expect(@user.blerbs.first.content).to eq("He can speak Russian… in French")
   end
 end
