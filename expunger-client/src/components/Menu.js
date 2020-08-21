@@ -2,13 +2,13 @@ import React from 'react';
 
 const Menu = () => {
     return (
-        <div class="ui left fixed blue inverted vertical menu">
-            <div class="item">
+        <div className="ui left fixed blue inverted vertical menu">
+            <div className="item">
                 <h4>EXPUNGER</h4>
             </div>
-            <a class="item">Feed</a>
-            <a class="item">Profile</a>
-            <a class="item">Sign-in</a>
+            <a className="item">Feed</a>
+            <a className="item">Profile</a>
+            <a className="item">Sign-in</a>
         </div>
     )
 }
