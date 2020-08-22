@@ -6,7 +6,7 @@ RSpec.describe BlerbsCleanupJob, type: :job do
       blerb = Blerb.create(content: "This is a test blerb!!")
 
       ActiveJob::Base.queue_adapter = :test
-      BlerbsCleanupJob.perform_later(blerb.id)
+      BlerbsCleanupJob.perform_later
 
       expect(BlerbsCleanupJob).to have_been_enqueued
     end
