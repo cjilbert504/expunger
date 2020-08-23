@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import blerbsReducer from './blerbsReducer';
 
 export default combineReducers({
-    stub: () => "placeholder for actual reducer"
+    blerbs: blerbsReducer
 });
