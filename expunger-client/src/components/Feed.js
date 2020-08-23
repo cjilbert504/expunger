@@ -8,6 +8,7 @@ class Feed extends React.Component {
     };
 
     render() {
+        console.log(this.props.blerbs);
         return (
             <div className="ui very padded blue inverted raised segment" style={{ boxShadow: "5px 5px 10px #888888", marginBottom: "100px", marginLeft: "200px" }}>
                 Feed
@@ -16,4 +17,8 @@ class Feed extends React.Component {
     }
 };
 
-export default connect(null, { getBlerbs })(Feed);
+const mapStateToProps = (state) => {
+    return { blerbs: state.blerbs };
+};
+
+export default connect(mapStateToProps, { getBlerbs })(Feed);
