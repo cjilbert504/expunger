@@ -15,7 +15,7 @@ class Feed extends React.Component {
                     <h4 className="ui violet header">{blerb.attributes.user.username}</h4>
                     {/* <h6 className="ui violet right aligned header">{blerb.attributes.user.created_at}</h6> THIS LINE MAYBE SHOULD BE THE USERS AVATAR; STRETCH GOAL */}
                     <div className="content">
-                        <div className="description">
+                        <div className="description" style={{ color: "black" }}>
                             <p>{blerb.attributes.content}</p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@ class Feed extends React.Component {
 
     render() {
         return (
-            <div className="ui relaxed divided list" style={{ marginLeft: "200px" }}>
+            <div className="ui relaxed divided list">
                 {this.renderBlerbs()}
             </div>
         )
