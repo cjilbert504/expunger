@@ -2,7 +2,7 @@ import railsAPI from '../apis/railsAPI';
 
 export const getBlerbs = () => async (dispatch) => {
     const response = await railsAPI.get("/blerbs");
-    console.log(response.data);
+
     dispatch({ type: "GET_BLERBS", payload: response.data })
 };
 
