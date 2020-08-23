@@ -7,11 +7,27 @@ class Feed extends React.Component {
         this.props.getBlerbs();
     };
 
-    render() {
+    renderBlerbs() {                             // Extract this out to a presentional component
         console.log(this.props.blerbs);
+        return this.props.blerbs.map(blerb => {
+            return (
+                <div className="ui violet message" key={blerb.id}>
+                    <h4 className="ui violet header">{blerb.attributes.user.username}</h4>
+                    {/* <h6 className="ui violet right aligned header">{blerb.attributes.user.created_at}</h6> THIS LINE MAYBE SHOULD BE THE USERS AVATAR; STRETCH GOAL */}
+                    <div className="content">
+                        <div className="description">
+                            <p>{blerb.attributes.content}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        })
+    };
+
+    render() {
         return (
-            <div className="ui very padded blue inverted raised segment" style={{ boxShadow: "5px 5px 10px #888888", marginBottom: "100px", marginLeft: "200px" }}>
-                Feed
+            <div className="ui relaxed divided list" style={{ marginLeft: "200px" }}>
+                {this.renderBlerbs()}
             </div>
         )
     }

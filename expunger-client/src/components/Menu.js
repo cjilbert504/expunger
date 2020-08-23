@@ -2,7 +2,7 @@ import React from 'react';
 
 const Menu = () => {
     return (
-        <div className="ui left fixed blue inverted vertical menu">
+        <div className="ui left fixed violet inverted vertical menu">
             <div className="item">
                 <h4>EXPUNGER</h4>
             </div>
