@@ -28,6 +28,6 @@ export const addUser = (newUser, callback) => async (dispatch) => {
         })
     })
     .then(response => response.json());
-    console.log(dispatch({ type: "CREATE_USER", payload: response.data.attributes })); // REMOVE THIS CONSOLE LOG
+    dispatch({ type: "CREATE_USER", payload: response.data.attributes });
     callback();
 };
