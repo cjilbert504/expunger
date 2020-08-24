@@ -19,7 +19,11 @@ class SignUp extends React.Component {
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        this.props.addUser(this.state)
+
+        this.props.addUser(this.state, () => {
+            this.props.history.push("/feed");
+        });
+
         this.setState({
             username: "",
             email: "",

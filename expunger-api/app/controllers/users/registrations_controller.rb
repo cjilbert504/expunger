@@ -13,9 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     # super
     user = User.new(user_params)
-    user.save
-    render json: UserSerializer.new(user).serialized_json
-    binding.pry
+    if user.save
+      session[:user_id] = user.id 
+      render json: UserSerializer.new(user).serialized_json
+    end
   end
 
   # GET /resource/edit

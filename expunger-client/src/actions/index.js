@@ -12,7 +12,7 @@ export const getBlerbs = () => async (dispatch) => {
 //     dispatch({ type: "GET_BLERBS", payload: response })
 // };
 
-export const addUser = (newUser) => async (dispatch) => {
+export const addUser = (newUser, callback) => async (dispatch) => {
     const response = await fetch("http://localhost:3001/users", {
         method: "POST",
         headers: {
@@ -29,4 +29,5 @@ export const addUser = (newUser) => async (dispatch) => {
     })
     .then(response => response.json());
     console.log(dispatch({ type: "CREATE_USER", payload: response })); // REMOVE THIS CONSOLE LOG
+    callback();
 };
