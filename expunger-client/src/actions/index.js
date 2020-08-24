@@ -11,3 +11,20 @@ export const getBlerbs = () => async (dispatch) => {
 
 //     dispatch({ type: "GET_BLERBS", payload: response })
 // };
+
+export const addUser = (newUser) => async (dispatch) => {
+    const response = await fetch("http://localhost:3001/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: newUser.username,
+            email: newUser.email,
+            password: newUser.password,
+            password_confirmation: newUser.password_confirmation
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+};
