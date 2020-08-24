@@ -25,6 +25,6 @@ export const addUser = (newUser) => async (dispatch) => {
             password_confirmation: newUser.password_confirmation
         })
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then(response => response.json());
+    (dispatch({ type: "CREATE_USER", payload: response }));
 };

@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
+import { addUser } from '../actions';
 
 class SignUp extends React.Component {
     state = {
@@ -16,7 +19,7 @@ class SignUp extends React.Component {
 
     onFormSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state); // this is where i want to call an action creator to GET_CURRENT_USER
+        this.props.addUser(this.state)
         this.setState({
             username: "",
             email: "",
@@ -52,4 +55,4 @@ class SignUp extends React.Component {
     };
 };
 
-export default SignUp;
+export default connect(null, { addUser })(SignUp);
