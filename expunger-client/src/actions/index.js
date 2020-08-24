@@ -19,10 +19,12 @@ export const addUser = (newUser) => async (dispatch) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            username: newUser.username,
-            email: newUser.email,
-            password: newUser.password,
-            password_confirmation: newUser.password_confirmation
+            user: {
+                username: newUser.username,
+                email: newUser.email,
+                password: newUser.password,
+                password_confirmation: newUser.password_confirmation
+            }
         })
     })
     .then(response => response.json());
