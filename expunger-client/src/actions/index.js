@@ -28,5 +28,5 @@ export const addUser = (newUser) => async (dispatch) => {
         })
     })
     .then(response => response.json());
-    (dispatch({ type: "CREATE_USER", payload: response }));
+    console.log(dispatch({ type: "CREATE_USER", payload: response })); // REMOVE THIS CONSOLE LOG
 };
