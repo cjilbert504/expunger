@@ -11,8 +11,10 @@ class Feed extends React.Component {
 
     render() {
         return (
-            <div className="ui relaxed divided list">
-                <Blerb blerbs={this.props.blerbs} />
+            <div className="ui container">
+                <div className="ui relaxed divided list">
+                    <Blerb blerbs={this.props.blerbs} />
+                </div>
             </div>
         )
     }
