@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getBlerbs } from '../actions';
 
 import Blerb from './Blerb';
+import BlerbWriter from './BlerbWriter';
 
 class Feed extends React.Component {
     componentDidMount() {
@@ -11,10 +12,11 @@ class Feed extends React.Component {
 
     render() {
         return (
-            <div className="ui container">
+            <div className="ui container" style={{ width: "700px" }}>
                 <div className="ui relaxed divided list">
                     <Blerb blerbs={this.props.blerbs} />
                 </div>
+                <BlerbWriter />
             </div>
         )
     }
