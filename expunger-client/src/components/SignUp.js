@@ -14,10 +14,21 @@ class SignUp extends React.Component {
         });
     };
 
+    onFormSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state); // this is where i want to call an action creator to GET_CURRENT_USER
+        this.setState({
+            username: "",
+            email: "",
+            password: "",
+            password_confirmation: ""
+        });
+    };
+
     render() {
         return (
             <div className="ui container" style={{ width: "400px", marginTop: "250px"}}>
-                <form className="ui form purple segment">
+                <form onSubmit={this.onFormSubmit} className="ui form purple segment">
                     <div className="field">
                         <label>Username</label>
                         <input type="text" name="username" value={this.state.username} onChange={this.onInputChange}></input>
