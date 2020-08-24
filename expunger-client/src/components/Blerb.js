@@ -1,15 +1,14 @@
 import React from 'react';
 
+import Header from './Header';
+import Content from './Content';
+
 const renderBlerbs = (blerbs) => {
     return blerbs.map(blerb => {
         return (
             <div className="ui violet message" key={blerb.id}>
-                <h4 className="ui violet header">{blerb.attributes.user.username}</h4>
-                <div className="content">
-                    <div className="description" style={{ color: "black" }}>
-                        <p>{blerb.attributes.content}</p>
-                    </div>
-                </div>
+                <Header username={blerb.attributes.user.username} />
+                <Content content={blerb.attributes.content} />
             </div>
         );
     });
