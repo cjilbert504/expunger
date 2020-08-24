@@ -1,14 +1,16 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import Feed from './Feed';
 import Menu from './Menu';
 
 const App = () => {
     return (
         <div>
-            <Menu />
-            <div className="ui container">
-                <Feed />
-            </div>
+            <BrowserRouter>
+                <Menu />
+                <Route path="/feed" exact component={Feed} />
+            </BrowserRouter>
         </div>
     );
 };
