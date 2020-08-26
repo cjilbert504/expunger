@@ -6,12 +6,6 @@ export const getBlerbs = () => async (dispatch) => {
     dispatch({ type: "GET_BLERBS", payload: response.data.data })
 };
 
-// export const getBlerbs = () => async (dispatch) => {
-//     const response = await fetch("http://localhost:3001/blerbs");
-
-//     dispatch({ type: "GET_BLERBS", payload: response.data.data })
-// };
-
 export const addUser = (newUser, callback) => async (dispatch) => {
     const response = await fetch("http://localhost:3001/users", {
         method: "POST",
