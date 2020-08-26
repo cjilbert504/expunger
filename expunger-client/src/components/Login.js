@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { loginUser } from '../actions';
+
 class Login extends React.Component {
     state = {
         email: "",
@@ -16,6 +18,15 @@ class Login extends React.Component {
 
     onFormSubmit = (event) => {
         event.preventDefault();
+
+        this.props.loginUser(this.state, () => {
+            this.props.history.push("/feed");
+        });
+
+        this.setState({
+            email: "",
+            password: ""
+        });
     };
 
     render() {
@@ -39,7 +50,7 @@ class Login extends React.Component {
                                         <i className="lock icon"></i>
                                     </div>
                                 </div>
-                                <div className="ui blue submit button">Login</div>
+                                <div className="ui blue submit button" onClick={this.onFormSubmit}>Login</div>
                             </div>
                         </div>
                         <div className="middle aligned column">
@@ -58,4 +69,4 @@ class Login extends React.Component {
     };
 };
 
-export default connect(null)(Login);
+export default connect(null, { loginUser })(Login);

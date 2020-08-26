@@ -9,7 +9,7 @@ export const getBlerbs = () => async (dispatch) => {
 // export const getBlerbs = () => async (dispatch) => {
 //     const response = await fetch("http://localhost:3001/blerbs");
 
-//     dispatch({ type: "GET_BLERBS", payload: response })
+//     dispatch({ type: "GET_BLERBS", payload: response.data.data })
 // };
 
 export const addUser = (newUser, callback) => async (dispatch) => {
@@ -33,7 +33,7 @@ export const addUser = (newUser, callback) => async (dispatch) => {
 };
 
 export const loginUser = (user, callback) => async (dispatch) => {
-    const response = await fetch("http://localhost:3001/users/sign_in", {
+     const response = await fetch("http://localhost:3001/users/sign_in", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -46,6 +46,6 @@ export const loginUser = (user, callback) => async (dispatch) => {
         })
     })
     .then(response => response.json());
-    console.log(dispatch({ type: "CURRENT_USER", payload: response }));
-    // callback();
+    console.log(dispatch({ type: "CURRENT_USER", payload: response.data.attributes }))
+    callback();
 };
