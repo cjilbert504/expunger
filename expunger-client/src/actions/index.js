@@ -22,7 +22,7 @@ export const addUser = (newUser, callback) => async (dispatch) => {
         })
     })
     .then(response => response.json());
-    dispatch({ type: "CREATE_USER", payload: response.data.attributes });
+    dispatch({ type: "LOGIN_USER", payload: response.data.attributes });
     callback();
 };
 
@@ -40,6 +40,6 @@ export const loginUser = (user, callback) => async (dispatch) => {
         })
     })
     .then(response => response.json());
-    dispatch({ type: "CURRENT_USER", payload: response.data.attributes })
+    dispatch({ type: "LOGIN_USER", payload: response.data.attributes })
     callback();
 };
