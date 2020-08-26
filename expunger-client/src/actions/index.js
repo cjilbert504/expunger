@@ -31,3 +31,21 @@ export const addUser = (newUser, callback) => async (dispatch) => {
     dispatch({ type: "CREATE_USER", payload: response.data.attributes });
     callback();
 };
+
+export const loginUser = (user, callback) => async (dispatch) => {
+    const response = await fetch("http://localhost:3001/users/sign_in", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            user: {
+                email: user.email,
+                password: user.password,
+            }
+        })
+    })
+    .then(response => response.json());
+    console.log(dispatch({ type: "CURRENT_USER", payload: response }));
+    // callback();
+};
