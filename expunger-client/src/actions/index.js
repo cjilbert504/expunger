@@ -46,6 +46,6 @@ export const loginUser = (user, callback) => async (dispatch) => {
         })
     })
     .then(response => response.json());
-    console.log(dispatch({ type: "CURRENT_USER", payload: response.data.attributes }))
+    dispatch({ type: "CURRENT_USER", payload: response.data.attributes })
     callback();
 };
