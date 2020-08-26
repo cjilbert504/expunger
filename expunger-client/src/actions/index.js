@@ -27,7 +27,7 @@ export const addUser = (newUser, callback) => async (dispatch) => {
 };
 
 export const loginUser = (user, callback) => async (dispatch) => {
-     const response = await fetch("http://localhost:3001/users/sign_in", {
+     const response = await fetch("http://localhost:3001/sessions", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

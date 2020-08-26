@@ -13,7 +13,6 @@ class Login extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        console.log(this.state);
     };
 
     onFormSubmit = (event) => {
