@@ -1,8 +1,23 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 class Login extends React.Component {
+    state = {
+        email: "",
+        password: ""
+    }
+
+    onInputChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+        console.log(this.state);
+    };
+
+    onFormSubmit = (event) => {
+        event.preventDefault();
+    };
+
     render() {
         return (
             <div className="ui container" style={{ width: "600px", marginTop: "250px"}}>
@@ -11,16 +26,16 @@ class Login extends React.Component {
                         <div className="column">
                             <div className="ui form">
                                 <div className="field">
-                                    <label>Username</label>
+                                    <label>Email</label>
                                     <div className="ui left icon input">
-                                        <input type="text" placeholder="Username" />
+                                        <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.onInputChange} />
                                         <i className="user icon"></i>
                                     </div>
                                 </div>
                                 <div className="field">
                                     <label>Password</label>
                                     <div className="ui left icon input">
-                                        <input type="password" />
+                                        <input type="password" name="password" value={this.state.password} onChange={this.onInputChange} />
                                         <i className="lock icon"></i>
                                     </div>
                                 </div>
@@ -28,7 +43,7 @@ class Login extends React.Component {
                             </div>
                         </div>
                         <div className="middle aligned column">
-                            <div className="ui big button" onClick={() => this.props.history.push("/signup")}>
+                            <div className="ui blue big button" onClick={() => this.props.history.push("/signup")}>
                                 <i className="signup icon"></i>
                                 Sign-Up
                             </div>
