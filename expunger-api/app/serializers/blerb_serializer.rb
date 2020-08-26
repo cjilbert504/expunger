@@ -1,4 +1,4 @@
 class BlerbSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :content, :user
+  attributes :content, :created_at, :user
 end
