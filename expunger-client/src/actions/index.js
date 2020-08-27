@@ -43,3 +43,20 @@ export const loginUser = (user, callback) => async (dispatch) => {
     dispatch({ type: "LOGIN_USER", payload: response.data.attributes })
     callback();
 };
+
+export const addBlerb = (newBlerb, user) => async (dispatch) => {
+    const response = await fetch("http://localhost:3001/blerbs", {
+       method: "POST",
+       headers: {
+           "Content-Type": "application/json"
+       },
+       body: JSON.stringify({
+           blerb: {
+               content: newBlerb.blerb,
+               user_id: user.id
+           }
+       })
+   })
+   .then(response => response.json())
+   dispatch({ type: "ADD_BLERB", payload: response.data })
+};
