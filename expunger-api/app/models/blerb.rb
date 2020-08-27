@@ -3,6 +3,6 @@ class Blerb < ApplicationRecord
 
   validates :content, length: { maximum: 120 }
 
-  scope :not_outdated, -> { where("created_at >= ?", 20.seconds.ago) }
+  scope :not_outdated, -> { where("created_at >= ?", 60.seconds.ago) }
 
 end
