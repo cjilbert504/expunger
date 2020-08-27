@@ -8,6 +8,12 @@ import BlerbWriter from './BlerbWriter';
 class Feed extends React.Component {
     componentDidMount() {
         this.props.getBlerbs();
+
+        this.interval = setInterval(this.props.getBlerbs, 60000);
+    };
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     };
 
     render() {
