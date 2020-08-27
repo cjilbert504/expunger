@@ -30,7 +30,7 @@ class Login extends React.Component {
 
     render() {
         return (
-            <div className="ui container" style={{ width: "600px", marginTop: "250px"}}>
+            <div className="ui container" style={{ width: "600px", marginTop: "150px"}}>
                 <div className="ui placeholder segment">
                     <div className="ui two column very relaxed stackable grid">
                         <div className="column">

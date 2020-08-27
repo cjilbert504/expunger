@@ -12,11 +12,15 @@ class Feed extends React.Component {
 
     render() {
         return (
-            <div className="ui container" style={{ width: "700px" }}>
-                <div className="ui relaxed divided list">
-                    <Blerb blerbs={this.props.blerbs} />
+            <div>
+                <div className="ui segment" style={{ marginLeft: "300px", marginTop: "25px", width: "850px" }}>
+                    <BlerbWriter />
                 </div>
-                <BlerbWriter />
+                <div className="ui container" style={{ width: "700px", marginTop: "50px" }}>
+                    <div className="ui relaxed divided list">
+                        <Blerb blerbs={this.props.blerbs} />
+                    </div>
+                </div>
             </div>
         )
     }

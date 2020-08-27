@@ -26,7 +26,7 @@ class BlerbWriter extends React.Component {
 
     render() {
         return (
-            <div className="ui fluid action input">
+            <div className="ui fluid action transparent input">
                 <input type="text" placeholder="Choose your words wisely..." name="blerb" value={this.state.blerb} onChange={this.onInputChange} />
                 <div onClick={this.onFormSubmit} className="ui blue button">Blabber about it</div>
             </div>
