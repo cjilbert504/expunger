@@ -33,9 +33,8 @@ group :development, :test do
   gem 'faker', '~> 1.6', '>= 1.6.6'
   gem 'pry'
   gem 'devise'
-  gem 'jwt'
+  gem 'simple_token_authentication', '~> 1.0'
   gem 'rspec-rails'
-  gem 'dotenv-rails'
 end
 
 group :development do
