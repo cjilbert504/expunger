@@ -5,7 +5,12 @@ class UsersController < ApplicationController
         if user.save
             render json: UserSerializer.new(user).serialized_json
         else
-            head(:unprocessable_entity)
+            response = {
+                error: "Form Errors",
+                details: user.errors.full_messages
+            }
+            
+            render json: response
         end
     end
 

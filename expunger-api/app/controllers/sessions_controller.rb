@@ -5,7 +5,12 @@ class SessionsController < ApplicationController
         if user&.valid_password?(params[:user][:password])
             render json: UserSerializer.new(user).serialized_json
         else
-            head(:unauthorized)
+            response = {
+                error: "Invalid Credentials",
+                details: user.errors.full_messages
+            }
+            
+            render json: response, status: :unauthorized
         end
     end
 
