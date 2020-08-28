@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+
+    def show
+        user = current_user
+        render json: UserSerializer.new(user).serialized_json
+    end
+
     def create
         user = User.new(user_params)
 

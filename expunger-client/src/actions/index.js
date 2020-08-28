@@ -47,10 +47,19 @@ export const loginUser = (user, callback) => async (dispatch) => {
     .then(userInfo => {
         const authentication_token = userInfo.data.attributes.authentication_token;
         localStorage.setItem('token', authentication_token);
+        console.log(userInfo.data.attributes);
         dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes });
     })
 
     callback();
+};
+
+export const currentUser = (token) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/users/${token}`)
+            .then(response => response.json())
+            .then(userInfo => dispatch({ type: "CURRENT_USER", payload: userInfo.data.attributes }))
+    }
 };
 
 export const addBlerb = (newBlerb, user) => async (dispatch) => {
