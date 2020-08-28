@@ -21,8 +21,12 @@ export const addUser = (newUser, callback) => async (dispatch) => {
             }
         })
     })
-    .then(response => response.json());
-    dispatch({ type: "LOGIN_USER", payload: response.data.attributes });
+    .then(response => response.json())
+    .then(userInfo => {
+        const authentication_token = userInfo.data.attributes.authentication_token;
+        localStorage.setItem('token', authentication_token);
+        dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes });
+    })
     callback();
 };
 
@@ -39,8 +43,13 @@ export const loginUser = (user, callback) => async (dispatch) => {
             }
         })
     })
-    .then(response => response.json());
-    dispatch({ type: "LOGIN_USER", payload: response.data.attributes })
+    .then(response => response.json())
+    .then(userInfo => {
+        const authentication_token = userInfo.data.attributes.authentication_token;
+        localStorage.setItem('token', authentication_token);
+        dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes });
+    })
+
     callback();
 };
 
