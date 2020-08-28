@@ -35,6 +35,7 @@ group :development, :test do
   gem 'devise'
   gem 'jwt'
   gem 'rspec-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
