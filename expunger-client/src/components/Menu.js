@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
-import { currentUser } from '../actions';
+import { currentUser, logoutUser } from '../actions';
 
 class Menu extends React.Component {
     componentDidMount() {
@@ -17,17 +17,14 @@ class Menu extends React.Component {
                 <div>
                     <div className="item">Welcome, {this.props.users.username}!</div>
                     <Link to="/feed" className="item">Feed</Link>
-                    {/* <Link to="/profile" className="item">Profile</Link> */}
-                    <Link to="/logout" className="item">Log Out</Link>
+                    <Link to="/" className="item" onClick={() => this.props.logoutUser()}>Log Out</Link>
                 </div>
             )
         } else {
             return (
                 <div>
-                    {/* <Link to="/profile" className="item">Profile</Link> */}
                     <Link to="/signup" className="item">Sign-Up</Link>
                     <Link to="/login" className="item">Log In</Link>
-                    <Link to="/logout" className="item">Log Out</Link>
                 </div>
             )
         }
@@ -52,4 +49,4 @@ const mapStateToProps = ({ users }) => {
     return { users }
 }
 
-export default connect(mapStateToProps, { currentUser })(Menu);
+export default connect(mapStateToProps, { currentUser, logoutUser })(Menu);

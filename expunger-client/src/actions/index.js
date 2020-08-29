@@ -82,3 +82,10 @@ export const addBlerb = (newBlerb, user) => {
         .then(blerb => dispatch({ type: "ADD_BLERB", payload: blerb.data}))
     };
 };
+
+export const logoutUser = () => {
+    localStorage.removeItem("token")
+    return {
+        type: "LOGOUT_USER"
+    }
+};
