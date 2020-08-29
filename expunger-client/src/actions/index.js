@@ -24,11 +24,16 @@ export const addUser = (newUser, callback) => {
         })
         .then(res => res.json())
         .then(userInfo => {
-            const authentication_token = userInfo.data.attributes.authentication_token;
-            localStorage.setItem('token', authentication_token);
-            dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes })
-            callback();
+            if (userInfo.error) {
+                alert(userInfo.details)
+            } else {
+                const authentication_token = userInfo.data.attributes.authentication_token;
+                localStorage.setItem('token', authentication_token);
+                dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes })
+                callback();
+            }
         })
+            .catch(console.log())
     };
 };
 
@@ -48,11 +53,16 @@ export const loginUser = (user, callback) => {
         })
         .then(res => res.json())
         .then(userInfo => {
-            const authentication_token = userInfo.data.attributes.authentication_token;
-            localStorage.setItem('token', authentication_token);
-            dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes })
-            callback();
+            if (userInfo.error) {
+                alert(userInfo.error)
+            } else {
+                const authentication_token = userInfo.data.attributes.authentication_token;
+                localStorage.setItem('token', authentication_token);
+                dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes })
+                callback();
+            }
         })
+            .catch(console.log())
     };
 };
 
@@ -79,7 +89,14 @@ export const addBlerb = (newBlerb, user) => {
             })
         })
         .then(res => res.json())
-        .then(blerb => dispatch({ type: "ADD_BLERB", payload: blerb.data}))
+        .then(blerb => {
+            if (blerb.error) {
+                alert(blerb.details)
+            } else {
+                dispatch({ type: "ADD_BLERB", payload: blerb.data})
+            }
+        })
+        .catch(console.log())
     };
 };
 

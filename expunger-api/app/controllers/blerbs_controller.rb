@@ -7,8 +7,16 @@ class BlerbsController < ApplicationController
 
     def create
         blerb = Blerb.new(blerb_params)
-        blerb.save
-        render json: BlerbSerializer.new(blerb).serialized_json
+        if blerb.save
+            render json: BlerbSerializer.new(blerb).serialized_json
+        else
+            response = {
+                error: "Form Errors",
+                details: blerb.errors.full_messages
+            }
+            
+            render json: response
+        end
     end
 
     private

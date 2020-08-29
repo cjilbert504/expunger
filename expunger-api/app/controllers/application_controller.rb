@@ -7,7 +7,4 @@ class ApplicationController < ActionController::API
         !!current_user
     end
 
-    # def get_user_token
-    #     params[:user][:authorization_token]
-    # end
 end
