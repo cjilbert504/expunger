@@ -1,6 +1,6 @@
 class BlerbsController < ApplicationController 
     def index
-        blerbs = Blerb.not_outdated
+        blerbs = Blerb.all
 
         render json: BlerbSerializer.new(blerbs).serialized_json
     end

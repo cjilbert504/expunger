@@ -11,7 +11,7 @@ const App = () => {
         <div>
             <BrowserRouter>
                 <Menu />
-                <Route path="/" exact component={Login} />
+                <Route path="/" exact component={localStorage.getItem("token") ? Feed : Login} /> {/* this somewhat works, if logged in user goes to / it shows feed comp like it should but url doens't match that */}
                 <Route path="/feed" exact component={Feed} />
                 <Route path="/signup" exact component={SignUp} />
                 <Route path="/login" exact component={Login} />
