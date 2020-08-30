@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getBlerbs } from '../actions';
 
+import { getBlerbs } from '../actions';
 import Blerb from './Blerb';
 import BlerbWriter from './BlerbWriter';
 
@@ -32,8 +32,8 @@ class Feed extends React.Component {
     }
 };
 
-const mapStateToProps = (state) => {
-    return { blerbs: state.blerbs };
+const mapStateToProps = ({ blerbs }) => {
+    return { blerbs };
 };
 
 export default connect(mapStateToProps, { getBlerbs })(Feed);
