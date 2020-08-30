@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Header from './Header';
 import Content from './Content';
@@ -14,12 +15,18 @@ const renderBlerbs = (blerbs) => {
     });
 };
 
-const Blerb = (props) => {
+const Blerb = ({ blerbs }) => {
     return (
         <div>
-            {renderBlerbs(props.blerbs)}
+            {renderBlerbs(blerbs)}
         </div>
     );
 };
 
-export default Blerb;
+const mapStateToProps = ({ blerbs }) => {
+    return {
+        blerbs
+    }
+}
+
+export default connect(mapStateToProps)(Blerb);

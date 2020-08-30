@@ -24,7 +24,7 @@ class Feed extends React.Component {
                 </div>
                 <div className="ui container" style={{ width: "700px", marginTop: "50px" }}>
                     <div className="ui relaxed divided list">
-                        <Blerb blerbs={this.props.blerbs} />
+                        <Blerb />
                     </div>
                 </div>
             </div>
