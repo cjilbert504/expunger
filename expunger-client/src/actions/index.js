@@ -1,6 +1,6 @@
 export const getBlerbs = () => {
     return (dispatch) => {
-        return fetch("http://localhost:3001/blerbs")
+        return fetch("http://localhost:3000/blerbs")
             .then(res => res.json())
             .then(blerbs => dispatch({ type: "GET_BLERBS", payload: blerbs.data}))
     };
@@ -8,7 +8,7 @@ export const getBlerbs = () => {
 
 export const addUser = (newUser, callback) => {
     return (dispatch) => {
-        return fetch("http://localhost:3001/users", {
+        return fetch("http://localhost:3000/users", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -39,8 +39,9 @@ export const addUser = (newUser, callback) => {
 
 export const loginUser = (user, callback) => {
     return (dispatch) => {
-        return fetch("http://localhost:3001/sessions", {
+        return fetch("http://localhost:3000/sessions", {
             method: "POST",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json"
             },
@@ -68,7 +69,9 @@ export const loginUser = (user, callback) => {
 
 export const currentUser = (token) => {
     return (dispatch) => {
-        return fetch(`http://localhost:3001/users/${token}`)
+        return fetch(`http://localhost:3000/users/${token}`, {
+            credentials: 'include'
+        })
             .then(res => res.json())
             .then(userInfo => dispatch({ type: "LOGIN_USER", payload: userInfo.data.attributes }))
     };
@@ -76,8 +79,9 @@ export const currentUser = (token) => {
 
 export const addBlerb = (newBlerb, user) => {
     return (dispatch) => {
-        return fetch("http://localhost:3001/blerbs", {
+        return fetch("http://localhost:3000/blerbs", {
             method: "POST",
+            credentials: 'include',
             headers: {
                 "Content-Type": "application/json"
             },
