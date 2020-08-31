@@ -10,6 +10,8 @@ class UsersController < ApplicationController
         user = User.new(user_params)
 
         if user.save
+            created_jwt = issue_token({id: user.id})
+            cookies.signed[:jwt] = {value:  created_jwt, httponly: true, expires: 1.hour.from_now}
             render json: UserSerializer.new(user).serialized_json
         else
             response = {
