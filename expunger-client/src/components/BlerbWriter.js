@@ -17,7 +17,7 @@ class BlerbWriter extends React.Component {
     onFormSubmit = (event) => {
         event.preventDefault();
 
-        this.props.addBlerb(this.state, this.props.users);
+        this.props.addBlerb(this.state, this.props.user);
 
         this.setState({
             blerb: ""
@@ -34,8 +34,8 @@ class BlerbWriter extends React.Component {
     }
 };
 
-const mapStateToProps = ({ users }) => {
-    return { users }
+const mapStateToProps = ({ user }) => {
+    return { user }
 };
 
 export default connect(mapStateToProps, { addBlerb } )(BlerbWriter);

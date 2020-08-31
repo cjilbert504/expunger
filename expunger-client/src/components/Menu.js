@@ -12,10 +12,10 @@ class Menu extends React.Component {
     };
 
     renderConditionalMenuItems = () => {
-        if (Object.keys(this.props.users).length > 0) {
+        if (Object.keys(this.props.user).length > 0) {
             return (
                 <div>
-                    <div className="item">Welcome, {this.props.users.username}!</div>
+                    <div className="item">Welcome, {this.props.user.username}!</div>
                     <Link to="/feed" className="item">Feed</Link>
                     <Link to="/" className="item" onClick={() => this.props.logoutUser()}>Log Out</Link>
                 </div>
@@ -45,8 +45,8 @@ class Menu extends React.Component {
     }
 }
 
-const mapStateToProps = ({ users }) => {
-    return { users }
+const mapStateToProps = ({ user }) => {
+    return { user }
 }
 
 export default connect(mapStateToProps, { currentUser, logoutUser })(Menu);

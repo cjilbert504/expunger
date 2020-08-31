@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import blerbsReducer from './blerbsReducer';
-import usersReducer from './usersReducer';
+import userReducer from './userReducer';
 
 export default combineReducers({
     blerbs: blerbsReducer,
-    users: usersReducer
+    user: userReducer
 });
