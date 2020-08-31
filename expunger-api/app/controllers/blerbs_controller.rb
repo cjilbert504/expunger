@@ -2,7 +2,7 @@ class BlerbsController < ApplicationController
     before_action :authenticate_user, only: [:create]
 
     def index
-        blerbs = Blerb.all
+        blerbs = Blerb.not_outdated
 
         render json: BlerbSerializer.new(blerbs).serialized_json
     end
