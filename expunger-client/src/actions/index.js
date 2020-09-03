@@ -104,9 +104,20 @@ export const addBlerb = (newBlerb, user) => {
     };
 };
 
-export const logoutUser = () => {
-    localStorage.removeItem("token")
-    return {
-        type: "LOGOUT_USER"
+export const logoutUser = (id) => {
+    return (dispatch) => {
+        return fetch(`http://localhost:3000//sessions/${id}`, {
+            method: "DELETE",
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(res => {
+            localStorage.removeItem("token")
+            dispatch({ type: "LOGOUT_USER" })
+        })
+    // localStorage.removeItem("token")
+    // return {
+    //     type: "LOGOUT_USER"
+    // }
     }
-};
+}

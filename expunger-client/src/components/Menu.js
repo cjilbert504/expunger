@@ -17,7 +17,7 @@ class Menu extends React.Component {
                 <div>
                     <div className="item">Welcome, {this.props.user.username}!</div>
                     <Link to="/feed" className="item">Feed</Link>
-                    <Link to="/" className="item" onClick={() => this.props.logoutUser()}>Log Out</Link>
+                    <Link to="/" className="item" onClick={() => this.props.logoutUser(this.props.user.id)}>Log Out</Link>
                 </div>
             )
         } else {

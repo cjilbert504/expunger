@@ -1,5 +1,4 @@
 class BlerbsController < ApplicationController 
-    before_action :authenticate_user, only: [:create]
 
     def index
         blerbs = Blerb.not_outdated
