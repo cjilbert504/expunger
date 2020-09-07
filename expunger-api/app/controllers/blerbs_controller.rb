@@ -1,7 +1,7 @@
 class BlerbsController < ApplicationController 
 
     def index
-        blerbs = Blerb.not_outdated
+        blerbs = Blerb.not_outdated.order(created_at: :desc)
 
         render json: BlerbSerializer.new(blerbs).serialized_json
     end
