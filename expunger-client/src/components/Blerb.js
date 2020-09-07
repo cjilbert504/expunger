@@ -5,7 +5,8 @@ import Header from './Header';
 import Content from './Content';
 
 const renderBlerbs = (blerbs) => {
-    return blerbs.map(blerb => {
+    const sortedBlerbs = blerbs.sort((a, b) => b.id - a.id)
+    return sortedBlerbs.map(blerb => {
         return (
             <div className="ui violet message" key={blerb.id}>
                 <Header username={blerb.attributes.user.username} />
