@@ -115,9 +115,5 @@ export const logoutUser = (id) => {
             localStorage.removeItem("token")
             dispatch({ type: "LOGOUT_USER" })
         })
-    // localStorage.removeItem("token")
-    // return {
-    //     type: "LOGOUT_USER"
-    // }
     }
 }
