@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addBlerb } from '../actions';
+
+import { addBlerb } from '../actions/blerbs/addBlerb';
 
 
 class BlerbWriter extends React.Component {

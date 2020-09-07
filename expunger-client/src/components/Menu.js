@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux'
-import { currentUser, logoutUser } from '../actions';
+import { connect } from 'react-redux';
+
+import { currentUser } from '../actions/users/currentUser';
+import { logoutUser } from '../actions/users/logoutUser';
 
 class Menu extends React.Component {
     componentDidMount() {

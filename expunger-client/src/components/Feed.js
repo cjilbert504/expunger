@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getBlerbs } from '../actions';
+import { getBlerbs } from '../actions/blerbs/getBlerbs';
 import Blerb from './Blerb';
 import BlerbWriter from './BlerbWriter';
 
