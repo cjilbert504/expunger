@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import InputField from './InputField';
 import { addUser } from '../actions/users/addUser';
 
 class SignUp extends React.Component {
@@ -37,34 +38,14 @@ class SignUp extends React.Component {
             <div className="ui container" style={{ width: "600px", marginTop: "150px"}}>
                 <div className="ui placeholder segment">
                     <div className="ui form">
-                        <div className="field">
-                            <label>Username</label>
-                            <div className="ui left icon input">
-                                <input type="text" name="username" value={this.state.username} onChange={this.onInputChange}></input>
-                                <i className="user icon"></i>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label>Email</label>
-                            <div className="ui left icon input">
-                                <input type="email" name="email" value={this.state.email} onChange={this.onInputChange}></input>
-                                <i className="envelope icon"></i>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label>Password</label>
-                            <div className="ui left icon input">
-                                <input type="password" name="password" value={this.state.password} onChange={this.onInputChange}></input>
-                                <i className="lock icon"></i>
-                            </div>
-                        </div>
-                        <div className="field">
-                            <label>Password Confirmation</label>
-                            <div className="ui left icon input">
-                                <input type="password" name="password_confirmation" value={this.state.password_confirmation} onChange={this.onInputChange}></input>
-                                <i className="lock icon"></i>
-                            </div>
-                        </div>
+                        <InputField outerDivClassName="field" label="Username" innerDivClassName="ui left icon input" inputType="text" inputName="username" inputValue={this.state.username} inputOnChange={this.onInputChange} iconClassName="user icon" />
+                  
+                        <InputField outerDivClassName="field" label="Email" innerDivClassName="ui left icon input" inputType="email" inputName="email" inputValue={this.state.email} inputOnChange={this.onInputChange} iconClassName="envelope icon" />
+                     
+                        <InputField outerDivClassName="field" label="Password" innerDivClassName="ui left icon input" inputType="password" inputName="password" inputValue={this.state.password} inputOnChange={this.onInputChange} iconClassName="lock icon" />
+                       
+                        <InputField outerDivClassName="field" label="Password Confirmation" innerDivClassName="ui left icon input" inputType="password" inputName="password_confirmation" inputValue={this.state.password_confirmation} inputOnChange={this.onInputChange} iconClassName="lock icon" />
+
                         <div className="ui blue submit button" onClick={this.onFormSubmit}>Sign-Up</div>
                     </div>
                 </div>

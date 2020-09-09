@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import InputField from './InputField';
 import { loginUser } from '../actions/users/loginUser';
 
 class Login extends React.Component {
@@ -29,26 +30,17 @@ class Login extends React.Component {
     };
 
     render() {
+        console.log(this.state.password);
         return (
             <div className="ui container" style={{ width: "600px", marginTop: "150px"}}>
                 <div className="ui placeholder segment">
                     <div className="ui two column very relaxed stackable grid">
                         <div className="column">
                             <div className="ui form">
-                                <div className="field">
-                                    <label>Email</label>
-                                    <div className="ui left icon input">
-                                        <input type="text" placeholder="Email" name="email" value={this.state.email} onChange={this.onInputChange} />
-                                        <i className="user icon"></i>
-                                    </div>
-                                </div>
-                                <div className="field">
-                                    <label>Password</label>
-                                    <div className="ui left icon input">
-                                        <input type="password" name="password" value={this.state.password} onChange={this.onInputChange} />
-                                        <i className="lock icon"></i>
-                                    </div>
-                                </div>
+                                <InputField outerDivClassName="field" label="Email" innerDivClassName="ui left icon input" inputType="text" inputPlaceholder="Email" inputName="email" inputValue={this.state.email} inputOnChange={this.onInputChange} iconClassName="user icon" />
+                             
+                                <InputField outerDivClassName="field" label="Password" innerDivClassName="ui left icon input" inputType="password" inputName="password" inputValue={this.state.password} inputOnChange={this.onInputChange} iconClassName="lock icon" />
+                                
                                 <div className="ui blue submit button" onClick={this.onFormSubmit}>Login</div>
                             </div>
                         </div>
