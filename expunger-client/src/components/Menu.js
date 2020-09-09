@@ -38,7 +38,7 @@ class Menu extends React.Component {
             <div className="ui left fixed violet inverted vertical menu">
                 <div className="item">
                     <h4>
-                        <Link to="/" className="item">EXPUNGER</Link>
+                        EXPUNGER
                     </h4>
                 </div>
                 { this.renderConditionalMenuItems() }
